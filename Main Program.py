@@ -2,7 +2,6 @@ import sympy as symp
 from Taylor_series import Taylor_series_with_sol
 from Lagrange_polynomial import lagrange_polynomial
 
-
 run = True
 while run:
     print("Function select: \n0 or else = exit")
@@ -10,6 +9,7 @@ while run:
     print("3 = show lagrange polynomial")
     mode = int(input("Select Mode [0,1,3]:"))
     if mode == 1:
+        x = symp.symbols("x")
         f = str(input("Enter Function expression:="))
         diff_level = int(input("Enter length of taylor series to show:="))
         show_n = input("[optional] show n only:=")
@@ -19,8 +19,9 @@ while run:
         print("Taylor's form:",ans)
         ask = str(input("want to substitution?[y/n]:")).lower()
         if ask == "y":
-            ask_v = int(input('Enter substitution value='))
-            print(ans.subs(ask_v))
+            ask_v = float(input('Enter substitution value='))
+            subs_ans = ans.subs(x,ask_v)
+            print(subs_ans)
         print("Done!\n")
     elif mode == 3:
         print("Mode select\n1 = simpson's 1/3 rule\n2 = simpson's 3/8 rule\n3 = Boole's rule")

@@ -7,7 +7,7 @@ def Taylor_series_with_sol(func,n_max,n=0):
     x = symp.symbols("x")
     if n >= n_max:
         diff_now = symp.diff(func)
-        print('diff',n,diff_now)
+        print('diff',n,":",diff_now)
         sol = diff_now.subs(x,0)
         final_level = sol * ((x**n) / symp.factorial(n))
         print("f(n)(0) * x**n / n!  value in this level:", final_level, "\n")

@@ -90,4 +90,5 @@ def lagrange_polynomial(max_x):
 
     simpli_expr = sympy.simplify(create_inside_expr(multiple_A))
 
-    print("\nI =",simpli_expr,",h :=",dx)
+    print("\nI =",simpli_expr,",h =",dx)
+
