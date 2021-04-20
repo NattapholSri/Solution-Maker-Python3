@@ -1,7 +1,4 @@
 import sympy as symp
-#import numpy
-#import math
-
 
 def Taylor_series_with_sol(func,n_max,n=0):
     x = symp.symbols("x")

@@ -1,6 +1,6 @@
 import sympy as symp
 from Taylor_series import Taylor_series_with_sol
-from Lagrange_polynomial import lagrange_polynomial
+from subs_Lagrange import lagrange_polynomial
 
 run = True
 while run:
@@ -15,7 +15,7 @@ while run:
         show_n = input("[optional] show n only:=")
         f = symp.sympify(f)
         ans = symp.simplify(Taylor_series_with_sol(f,diff_level))
-        print(show_n) if show_n != "" else print("No value")
+        #print(show_n) if show_n != "" else print("No value")
         print("Taylor's form:",ans)
         ask = str(input("want to substitution?[y/n]:")).lower()
         if ask == "y":
