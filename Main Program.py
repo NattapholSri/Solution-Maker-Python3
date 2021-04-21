@@ -14,8 +14,10 @@ while run:
         diff_level = int(input("Enter length of taylor series to show:="))
         show_n = input("[optional] show n only:=")
         f = symp.sympify(f)
-        ans = symp.simplify(Taylor_series_with_sol(f,diff_level))
-        #print(show_n) if show_n != "" else print("No value")
+        if show_n == "":
+            ans = symp.simplify(Taylor_series_with_sol(f,diff_level))
+        else:
+            ans = symp.simplify(Taylor_series_with_sol(f, diff_level,view_lm=int(show_n)))
         print("Taylor's form:",ans)
         ask = str(input("want to substitution?[y/n]:")).lower()
         if ask == "y":
