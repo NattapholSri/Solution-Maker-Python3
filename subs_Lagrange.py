@@ -101,8 +101,8 @@ def lagrange_polynomial(max_x):
             print("L" + str(i) + ":", func_form)
             if subs_bool == True:
                 x, x0, x1, x2, x3 = sympy.symbols('x x0 x1 x2 x3')
-                print("substitute value[x,x0,x1,x2]:",xs,x0s,x1s,x2s)
-                func_form = func_form.subs([(x,xs),(x0,x0s),(x1,x1s),(x2,x2s)])
+                print("substitute value[x,x0,x1,x2,x3]:",xs,x0s,x1s,x2s,x3s)
+                func_form = func_form.subs([(x,xs),(x0,x0s),(x1,x1s),(x2,x2s),(x3,x3s)])
                 print("substitute result:",func_form)
 
             if i == 1 or i == 2:
@@ -120,8 +120,8 @@ def lagrange_polynomial(max_x):
             print("L" + str(i) + ":", func_form)
             if subs_bool == True:
                 x, x0, x1, x2, x3, x4 = sympy.symbols('x x0 x1 x2 x3 x4')
-                print("substitute value[x,x0,x1,x2]:",xs,x0s,x1s,x2s)
-                func_form = func_form.subs([(x,xs),(x0,x0s),(x1,x1s),(x2,x2s)])
+                print("substitute value[x,x0,x1,x2,x3,x4]:",xs,x0s,x1s,x2s,x3s,x4s)
+                func_form = func_form.subs([(x,xs),(x0,x0s),(x1,x1s),(x2,x2s),(x3,x3s),(x4,x4s)])
                 print("substitute result:",func_form)
 
             if i == 2:
@@ -147,8 +147,10 @@ def lagrange_polynomial(max_x):
             simpli_expr = simpli_expr.subs([(x0,x0s),(x1,x1s),(x2,x2s)])
         elif max_x == 3:
             simpli_expr = simpli_expr.subs([(x0,x0s),(x1,x1s),(x2,x2s),(x3,x3s)])
-        a1 = int(input('a value='))
-        b1 = int(input('b value='))
+        else:
+            simpli_expr = simpli_expr.subs([(x0,x0s),(x1,x1s),(x2,x2s),(x3,x3s),(x4,x4s)])
+        a1 = input('a value=')
+        b1 = input('b value=')
         a,b = sympy.symbols("a b")
         dx = sympy.sympify(dx)
         dx = dx.subs([(a,a1),(b,b1)])
