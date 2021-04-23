@@ -1,6 +1,14 @@
 from tkinter import *
 from tkinter import scrolledtext
-#from tkinter.ttk import *
+from Taylor_series import Taylor_series_with_subs
+from functools import partial
+
+# Preload function
+def limit_view_set():
+    if lm_view == "":
+        return -1
+    else:
+        return int(lm_view.get())
 
 # GUI General config
 
@@ -13,12 +21,6 @@ window.geometry('640x480')
 lbl_e = Label(window, text="Expression:",font=("Comic Sans MS",22))
 lbl_e.grid(column=0, row=0)
 
-# exe(Run) button
-exe_btn = Button(window, text="Run", font=("Comic Sans MS",22))
-exe_btn.grid(column=2, row=6)
-
-expr_str = Entry(window, width=40)
-expr_str.grid(column=0, row=2)
 
 # N and X input value
 lbl_x = Label(window, text="substitution(optional):",font=("Comic Sans MS",20))
@@ -38,6 +40,15 @@ lbl_e.grid(column=2, row=0)
 
 lm_view = Entry(window)
 lm_view.grid(column=2, row=1)
+
+# exe(Run) button
+expr_str = Entry(window, width=40)
+expr_str.grid(column=0, row=2)
+#taylors = partial(Taylor_series_with_subs,expr_str.get(),int(n_str.get()),0,limit_view_set(),x_str.get())
+exe_btn = Button(window, text="Run", font=("Comic Sans MS",22))
+exe_btn.grid(column=2, row=6)
+
+
 
 # output zone
 out = scrolledtext.ScrolledText(window, height = 10, width = 55)

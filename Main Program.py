@@ -21,7 +21,7 @@ while run:
         print("Taylor's form:",ans)
         ask = str(input("want to substitution?[y/n]:")).lower()
         if ask == "y":
-            ask_v = float(input('Enter substitution value='))
+            ask_v = input('Enter substitution value=')
             subs_ans = ans.subs(x,ask_v)
             print(subs_ans)
         print("Done!\n")
