@@ -42,11 +42,19 @@ def Taylor_series_with_sol(func,n_max,n=0,view_lm=-1):
 
 #answer_exp = symp.simplify(Taylor_series_with_sol(f1,10))
 
+#---end dubug part----#
+
+
+# function for GUI
 def Taylor_series_with_subs(func,n_max,n=0,view_lm=-1,subs_v=None):
+    # translate string expression to function
+    func = symp.sympify(func)
+
     # check limit view
     if view_lm == -1:
         view_lm = n_max+1
 
+    # recursive from first to the end of 'n'
     x = symp.symbols("x")
     if n >= n_max:
         diff_now = symp.diff(func)

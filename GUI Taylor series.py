@@ -1,14 +1,20 @@
 from tkinter import *
 from tkinter import scrolledtext
 from Taylor_series import Taylor_series_with_subs
-from functools import partial
 
 # Preload function
 def limit_view_set():
-    if lm_view == "":
+    if lm_view.get() == None or lm_view.get() == "":
+        print(-1)
         return -1
     else:
+        print('else',lm_view.get())
         return int(lm_view.get())
+
+def run_taylor():
+    tx_result = Taylor_series_with_subs(expr_str.get(),int(n_str.get()),0,limit_view_set(),x_str.get())
+    out.delete('1.0',END)
+    out.insert(END,str(tx_result ))
 
 # GUI General config
 
@@ -44,8 +50,7 @@ lm_view.grid(column=2, row=1)
 # exe(Run) button
 expr_str = Entry(window, width=40)
 expr_str.grid(column=0, row=2)
-#taylors = partial(Taylor_series_with_subs,expr_str.get(),int(n_str.get()),0,limit_view_set(),x_str.get())
-exe_btn = Button(window, text="Run", font=("Comic Sans MS",22))
+exe_btn = Button(window, text="Run", font=("Comic Sans MS",22),command=run_taylor)
 exe_btn.grid(column=2, row=6)
 
 

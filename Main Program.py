@@ -11,7 +11,7 @@ while run:
     if mode == 1:
         x = symp.symbols("x")
         f = str(input("Enter Function expression:="))
-        diff_level = int(input("Enter length of taylor series to show:="))
+        diff_level = int(input("Enter length of taylor series to calculate:="))
         show_n = input("[optional] show n only:=")
         f = symp.sympify(f)
         if show_n == "":
