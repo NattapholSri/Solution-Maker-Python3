@@ -31,7 +31,7 @@ def Taylor_series_with_subs(func,n_max,n=0,view_lm=-1,subs_v=None):
             out.insert(END," -> f(n)(0) * x**n / n! value in this level: " + str(this_level) + " \n")
 
         if subs_v == None or subs_v == "":
-            func = this_level + Taylor_series_with_subs(func, n_max, n, view_lm)
+            func = this_level + Taylor_series_with_subs(func, n_max,n, view_lm)
             out.insert(END,"\nFull Form: " + str(func))
             return func
         else:
@@ -42,11 +42,11 @@ def Taylor_series_with_subs(func,n_max,n=0,view_lm=-1,subs_v=None):
     else:
         diff_now = sym.diff(func)
         sol = diff_now.subs(x,0)
-        n = n+1
-        this_level = sol * ((x**n) / sym.factorial(n))
+        this_level = sol * ((x ** n) / sym.factorial(n))
         if n <= view_lm:
             out.insert(END,'diff f' + str(n) + ":" + str(diff_now))
             out.insert(END," -> f(n)(0) * x**n / n! value in this level: " + str(this_level) + " \n")
+        n = n + 1
         return this_level + Taylor_series_with_subs(diff_now,n_max,n,view_lm)
 
 # Preload function
@@ -99,14 +99,14 @@ lm_view.grid(column=2, row=1)
 # exe(Run) button
 expr_str = Entry(window, width=40)
 expr_str.grid(column=0, row=2)
-exe_btn = Button(window, text="Run", font=("Comic Sans MS",22),command=run_taylor)
+exe_btn = Button(window, text="Run", font=("Comic Sans MS",20),command=run_taylor)
 exe_btn.grid(column=2, row=6)
 
 
 
 # output zone
 out = scrolledtext.ScrolledText(window, height = 20, width = 70)
-out.grid(column=0,row=8)
+out.grid(column=0,row=8,columnspan=2)
 
 window.mainloop()
 
