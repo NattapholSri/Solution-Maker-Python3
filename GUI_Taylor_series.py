@@ -2,6 +2,11 @@ from tkinter import *
 from tkinter import scrolledtext
 import sympy as sym
 
+# -------------- call GUI (Useful for other file ------------------ #
+
+def call_Taylor_UI():
+    window.mainloop()
+
 # custom function for GUI
 def Taylor_series_with_subs(func,n_max,n=0,view_lm=-1,subs_v=None):
     # translate string expression to function
@@ -52,10 +57,10 @@ def Taylor_series_with_subs(func,n_max,n=0,view_lm=-1,subs_v=None):
 # Preload function
 def limit_view_set():
     if lm_view.get() == None or lm_view.get() == "":
-        print(-1)
+        #print(-1)
         return -1
     else:
-        print('else',lm_view.get())
+        #print('else',lm_view.get())
         return int(lm_view.get())
 
 def run_taylor():
@@ -69,7 +74,7 @@ def run_taylor():
 
 window = Tk()
 window.title("Taylor's Series (Solution mk Programs)")
-window.geometry('800x600')
+window.geometry('600x600')
 
 # expression input zone
 
@@ -103,10 +108,8 @@ exe_btn = Button(window, text="Run", font=("Comic Sans MS",20),command=run_taylo
 exe_btn.grid(column=2, row=6)
 
 
-
 # output zone
 out = scrolledtext.ScrolledText(window, height = 20, width = 70)
-out.grid(column=0,row=8,columnspan=2)
+out.grid(column=0,row=8,columnspan=3)
 
-window.mainloop()
-
+#window.mainloop()
