@@ -112,4 +112,4 @@ exe_btn.grid(column=2, row=6)
 out = scrolledtext.ScrolledText(window, height = 20, width = 70)
 out.grid(column=0,row=8,columnspan=3)
 
-#window.mainloop()
+window.mainloop()
