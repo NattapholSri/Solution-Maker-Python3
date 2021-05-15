@@ -6,50 +6,30 @@ import sympy as sym
 import math
 
 a = symbols('a') #กำหนดแทนสัญสักษณ์
-x = symbols('x') #กำหนดแทนสัญสักษณ์
-def horner(fn,n):
+
+def horner(fn,n,sub):
     r = math.pi
 
-    ans = 0
-
-    sup = [] #เก็บค่าหลังดิป
-
     di = fn
-
+    poly =fn
+    result = int(poly[0])
+    x = sub
     #n = n # 0-9 10จำนวน
-    for i in range(n) : #ให้เก็บจำนวน10ค่า
-        dy = di.replace(a,int(0))
+    for i in range(1, n):
+        result1 = (result * x )+ int(poly[i])
+        out.insert(END,str(result)+'*'+ str(x) + '+' + str(poly[i])+ '=' + str(result1)+'\n')
+        result = result1
+    #return result1
+    print(result1)
+
+
+
 
 
         #if dy != 0: #ว่าคำตอบมีค่าเท่ากับ 0 ไหม
 
-        sup.append(dy/math.factorial(i)) # a/n!
-        print(di, '/',i,'!', ' = ', dy,'/',math.factorial(i))
-        out.insert(END,str(di)+ '/'+ str(i) +'!'+ ' = '+ str(dy) +'/'+ str(math.factorial(i))+ '\n')
-        #sup2.append((x ** i)) #x^n
 
-        di = diff(di) #ดิฟต่อเนื่อง
 
-    print(sup)
-    out.insert(END,'\n')
-    out.insert(END,str(sup)+'\n')
-    out.insert(END,'\n')
-
-    #print(sup2)
-
-    print(len(sup))
-    n= len(sup)-1
-    for i in range(len(sup)):#เพื่อรวมค่า
-        print('a',n,i)
-        print(sup[n], '+', '(', ans, '*', '(', r, '/', 4, ')', ')', '=', sup[n]+(ans*(r/4)))
-
-        out.insert(END,str(sup[n])+ '+'+ '('+ str(ans)+ '*'+ '('+ str(r)+ '/ 4 ' + ') ) = '+ str(sup[n]+(ans*(r/4))) + '\n')
-        ans = sup[n]+(ans*(r/4))# bn = an + bn*x
-
-        n -= 1
-    print('ANS','=',ans) # แสดงคำตอบ
-    out.insert(END, '\n')
-    out.insert(END,'ANS'+'='+ str(ans))
 
 
 window = Tk()
@@ -62,21 +42,29 @@ def helloCallBack():
     out.insert(END, "show Solution:\n")
     fn=sym.sympify(E1.get())
     n= int(E2.get())
-    horner(fn,n)
+    if E3.get() == '':
+        sub = 0
+    else:
+        sub = float(E3.get())
+    horner(fn,n,sub)
 
 run = Button(window, text ="run",font=("Comic Sans MS",20), command = helloCallBack)
-run.grid(column=1, row=2)
-L1 = Label(window, text="Function :",font=("Comic Sans MS",18))
+run.grid(column=1, row=3)
+L1 = Label(window, text="an - a0 :",font=("Comic Sans MS",18))
 L1.grid(column=0, row=0)
 L2 = Label(window, text="n :",font=("Comic Sans MS",18))
 L2.grid(column=0, row=1)
+L3 = Label(window, text="X = :",font=("Comic Sans MS",18))
+L3.grid(column=0, row=2)
 E1 = Entry(window, bd =5)
 E1.grid(column=1, row=0)
 E2 = Entry(window, bd =5)
 E2.grid(column=1, row=1)
+E3 = Entry(window, bd =5)
+E3.grid(column=1, row=2)
 
 out = scrolledtext.ScrolledText(window, height = 20, width = 70)
-out.grid(column=0,row=3,columnspan=3)
+out.grid(column=0,row=4,columnspan=3)
 
 
 
