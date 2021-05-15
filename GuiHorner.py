@@ -21,6 +21,7 @@ def horner(fn,n,sub):
         result = result1
     #return result1
     print(result1)
+    out.insert(END,'P(x=' + str(sub)  +')'+' = bn = '+str(result) )
 
 
 
