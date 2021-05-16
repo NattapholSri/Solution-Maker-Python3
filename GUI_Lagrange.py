@@ -166,7 +166,7 @@ def lagrange_polynomial(max_x):
         dx = dx.subs([(a,a1),(b,b1)])
 
     simpli_expr = simpli_expr.subs(h,dx)
-    out.insert(tk.END,"\n"+"\nI =" + str(simpli_expr),",h =" +str(dx))
+    out.insert(tk.END,"\n"+"\nI =" + str(simpli_expr) + ",h = " +str(dx))
     return
 
 
