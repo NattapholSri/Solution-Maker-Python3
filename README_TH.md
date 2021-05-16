@@ -2,9 +2,9 @@
 Make a Program like a sympy (early version) 3 - 5 function
 
 Module เสริมที่จำเป็นต้องมี
-- pygame,pygame_gui
+- pygame, pygame_gui
 - sys
-- numpy,sympy
+- numpy, sympy
 - math
 
 # วิธีการใช้งาน
