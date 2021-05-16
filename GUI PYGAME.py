@@ -49,7 +49,7 @@ while is_running:
                 if event.ui_element == Taylor_button:
                     print('Taylor Start')
                     pygame.quit()
-                    runpy.run_path("Gui_Tayloy_series.py")
+                    runpy.run_path("Gui_Taylor_series.py")
                 if event.ui_element == Horner_button:
                     print('Horner Start')
                     pygame.quit()
